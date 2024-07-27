@@ -36,6 +36,7 @@ namespace Gameplay
                 Ghoul ghoul = new();
                 _player?.AttackEnemy(ghoul);
                 ghoul.AttackPlayer(_player);
+                ghoul.AttackPlayer(_player);
             }   
         }
         public void StopGame()
