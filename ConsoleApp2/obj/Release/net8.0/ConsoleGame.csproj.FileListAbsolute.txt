@@ -1,0 +1,14 @@
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\net8.0\ConsoleGame.exe
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\net8.0\ConsoleGame.deps.json
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\net8.0\ConsoleGame.runtimeconfig.json
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\net8.0\ConsoleGame.dll
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\net8.0\ConsoleGame.pdb
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.AssemblyInfoInputs.cache
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.AssemblyInfo.cs
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.csproj.CoreCompileInputs.cache
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.dll
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\refint\ConsoleGame.dll
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.pdb
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ConsoleGame.genruntimeconfig.cache
+C:\Users\Owen\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\net8.0\ref\ConsoleGame.dll
