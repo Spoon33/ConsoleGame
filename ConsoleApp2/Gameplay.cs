@@ -37,6 +37,7 @@ namespace Gameplay
                 _player?.AttackEnemy(ghoul);
                 ghoul.AttackPlayer(_player);
                 ghoul.AttackPlayer(_player);
+                Console.WriteLine(_player?.GetHealth());
             }   
         }
         public void StopGame()

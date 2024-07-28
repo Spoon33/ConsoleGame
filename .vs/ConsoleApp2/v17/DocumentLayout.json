@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\gameplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\enemys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\enemys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\characters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|solutionrelative:consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1D4B482D-C7D1-455E-8E75-6B7CBBBCEC79}|ConsoleApp2\\ConsoleGame.csproj|c:\\users\\owen\\source\\repos\\consolegame\\consoleapp2\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleApp2\\Program.cs",
@@ -50,7 +50,8 @@
               "RelativeToolTip": "ConsoleApp2\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T13:47:06.97Z"
+              "WhenOpened": "2024-07-21T13:47:06.97Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Characters.cs",
               "DocumentMoniker": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Characters.cs",
               "RelativeDocumentMoniker": "ConsoleApp2\\Characters.cs",
@@ -78,32 +79,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Player.cs",
               "RelativeDocumentMoniker": "ConsoleApp2\\Player.cs",
               "ToolTip": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Player.cs",
               "RelativeToolTip": "ConsoleApp2\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAcwBMAAAAeAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAmwDMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T02:16:15.698Z"
+              "WhenOpened": "2024-07-23T02:16:15.698Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Gameplay.cs",
               "DocumentMoniker": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Gameplay.cs",
               "RelativeDocumentMoniker": "ConsoleApp2\\Gameplay.cs",
               "ToolTip": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Gameplay.cs",
               "RelativeToolTip": "ConsoleApp2\\Gameplay.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAMAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACQAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-26T01:58:34.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Enemys.cs",
               "DocumentMoniker": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\Enemys.cs",
               "RelativeDocumentMoniker": "ConsoleApp2\\Enemys.cs",

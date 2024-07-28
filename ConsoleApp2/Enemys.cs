@@ -1,7 +1,5 @@
-﻿using CharacterNamespace;
-using Global;
+﻿using Global;
 using Player;
-using System;
 using Utils;
 
 namespace Enemys
@@ -68,7 +66,7 @@ namespace Enemys
         public override void AttackPlayer(PlayerClass? player)
         {
             int damage = Util.RandomDamage(Globals.random, player);
-            if ((player.GetHealth() > 0))
+            if ((player?.GetHealth() > 0))
             {
                 Console.WriteLine($"{Name()} attacks {player.Name} with its claws dealing {damage} damage!");
                 player.TakeDamage(damage);

@@ -27,6 +27,9 @@ namespace Player
         {
             int damage = Util.RandomDamage(Globals.random, this);
             if (enemy.Health > 0) {
+                if (damage == 0) {
+                    Console.WriteLine($"{Name} missed their attack against the {enemy}!");
+                }
                 Console.WriteLine($"{Name} attacks a {enemy} with {Weapon} dealing {damage} damage!");
                 enemy.TakeDamage(damage);
             }

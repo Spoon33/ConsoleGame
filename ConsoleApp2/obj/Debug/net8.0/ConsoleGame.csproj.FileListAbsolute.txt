@@ -26,3 +26,4 @@ C:\Users\Owen\source\repos\ConsoleGame\ConsoleApp2\obj\Debug\net8.0\refint\Conso
 C:\Users\Owen\source\repos\ConsoleGame\ConsoleApp2\obj\Debug\net8.0\ConsoleGame.pdb
 C:\Users\Owen\source\repos\ConsoleGame\ConsoleApp2\obj\Debug\net8.0\ConsoleGame.genruntimeconfig.cache
 C:\Users\Owen\source\repos\ConsoleGame\ConsoleApp2\obj\Debug\net8.0\ref\ConsoleGame.dll
+C:\Users\Owen\source\repos\ConsoleGame\ConsoleApp2\obj\Debug\net8.0\ConsoleGame.sourcelink.json
