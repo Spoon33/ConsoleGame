@@ -22,7 +22,7 @@ namespace Enemys
             Type = type;
         }
 
-        public abstract void AttackPlayer(PlayerClass player);
+        public abstract void AttackPlayer(ref PlayerClass player);
         public void TakeDamage(int damage)
         {
             Health -= damage;
@@ -41,7 +41,7 @@ namespace Enemys
         }
         public virtual string Name()
         {
-            return $"{Type.ToString()}";
+            return $"{Type}";
         }
 
     }
@@ -63,7 +63,7 @@ namespace Enemys
             }
         }
 
-        public override void AttackPlayer(PlayerClass? player)
+        public override void AttackPlayer(ref PlayerClass? player)
         {
             int damage = Util.RandomDamage(Globals.random, player);
             if ((player?.GetHealth() > 0))
@@ -93,10 +93,10 @@ namespace Enemys
                 return true;
             }
         }
-        public override void AttackPlayer(PlayerClass player)
+        public override void AttackPlayer(ref PlayerClass player)
         {
             int damage = Util.RandomDamage(Globals.random, player);
-            if (!(player.GetHealth() > 0))
+            if (player.GetHealth() > 0)
             {
                 Console.WriteLine($"{Name()} attacks {player.Name} with its dagger dealing {damage} damage!");
                 player.TakeDamage(damage);

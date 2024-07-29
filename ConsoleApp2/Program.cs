@@ -1,8 +1,4 @@
-﻿using Player;
-using System.Diagnostics.CodeAnalysis;
-using CharacterNamespace;
-using Gameplay;
-using Utils;
+﻿using Gameplay;
 
 /*
  * TODO
@@ -21,7 +17,7 @@ class Entry
 {
     public static int Main()
     {
-        GameManager _gameManger = new GameManager();
+        GameManager _gameManger = new();
 
         _gameManger.Initialize();
 

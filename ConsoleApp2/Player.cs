@@ -11,8 +11,9 @@ namespace Player
         public string? Name { get; protected set; }
         public Character character { get; protected set; }
         public int Points { get; protected set; }
-        public int Health { get; set; }
+        public int Health { get; protected set; }
         public Weapon Weapon { get; private set; }
+        public int healthPotions { get; protected set; }
 
 
         public PlayerClass(string PlayerName, Weapon PlayerWeapon, Character charType)
@@ -21,19 +22,31 @@ namespace Player
             Weapon = PlayerWeapon;
             character = charType;
             Health = charType.Health;
+            healthPotions = charType.HealthPotions;
         }
 
         public void AttackEnemy(Enemy enemy)
         {
             int damage = Util.RandomDamage(Globals.random, this);
-            if (enemy.Health > 0) {
-                if (damage == 0) {
+            if (enemy.Health > 0)
+            {
+                if (damage == 0)
+                {
                     Console.WriteLine($"{Name} missed their attack against the {enemy}!");
                 }
-                Console.WriteLine($"{Name} attacks a {enemy} with {Weapon} dealing {damage} damage!");
-                enemy.TakeDamage(damage);
+                else
+                {
+                    Console.WriteLine($"{Name} attacks a {enemy} with {Weapon} dealing {damage} damage!");
+                    enemy.TakeDamage(damage);
+                }
+                
             }
             // enemy is dead move on
+        }
+        public void Heal()
+        {
+            healthPotions--;
+            Health += 30;
         }
         public void TakeDamage(int damage)
         {
@@ -58,6 +71,16 @@ namespace Player
             }
         }
 
+        public void AttemptFlee(List<Enemy> EnemyList)
+        {
+            int randomInt = Globals.random.Next(1, 100);
+            if (randomInt > 1 && randomInt < 30) {
+                Console.WriteLine("You have fleed the enemy! Moving on.");
+                EnemyList.RemoveAt(0);
+            }
+            Console.WriteLine("Flee attempt failed!");
+        }
+
         public int GetHealth()
         {
             return Health;
@@ -72,12 +95,6 @@ namespace Player
         {
             Console.WriteLine($"Seed for current session: {Globals.seed}");
         }
-
-
-
-        //public bool IsPlayerDead() { 
-
-        //}
 
     }
 

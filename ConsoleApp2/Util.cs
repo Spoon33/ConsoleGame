@@ -51,15 +51,9 @@ namespace Utils
         public static int RandomDamage(Random x, PlayerClass? player)
         {
             int damage = 0;
-            if (player.character.CharacterToString() == "Knight")
-            {
-                damage = (int)(x.Next(1, 50) * player.character.DamageMultiplier);
-                return damage;
-            }
-            else
-            {
-                return 0;
-            }
+            damage = x.Next(1, 50);
+            return damage;
+
         }
     }
 
