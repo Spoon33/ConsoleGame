@@ -22,7 +22,7 @@ namespace Enemys
             Type = type;
         }
 
-        public abstract void AttackPlayer(ref PlayerClass player);
+        public abstract void AttackPlayer(ref PlayerClass? player);
         public void TakeDamage(int damage)
         {
             Health -= damage;

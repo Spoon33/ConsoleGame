@@ -1,5 +1,6 @@
 ﻿using CharacterNamespace;
 using Enemys;
+using Global;
 using Player;
 
 namespace Utils
@@ -54,6 +55,31 @@ namespace Utils
             damage = x.Next(1, 50);
             return damage;
 
+        }
+        public static string GeneratePoints(Enemy enemy, PlayerClass? player)
+        {
+            int chance = Globals.random.Next(1, 100);
+            if (enemy.Type == EnemyType.Ghoul) { 
+                player.AddPoints(1);
+                return "1";
+            }
+            if (chance > 0 && chance < 21 && enemy.Type == EnemyType.Goblin)
+            {
+                player.AddPoints(3);
+                return "3";
+            }
+            else if (chance > 0 && chance < 51 && enemy.Type == EnemyType.Goblin)
+            {
+                player.AddPoints(2);
+                return "2";
+            }
+            else 
+            {
+                player.AddPoints(1);
+                return "1";
+            }
+            
+            return "ERROR";
         }
     }
 

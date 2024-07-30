@@ -11,7 +11,7 @@ namespace Player
         public string? Name { get; protected set; }
         public Character character { get; protected set; }
         public int Points { get; protected set; }
-        public int Health { get; protected set; }
+        public int Health { get; set; }
         public Weapon Weapon { get; private set; }
         public int healthPotions { get; protected set; }
 
@@ -53,29 +53,16 @@ namespace Player
             Health -= damage;
         }
 
-        public void AddPoints(EnemyType enemy)
+        public void AddPoints(int points)
         {
-            Dictionary<EnemyType, int> pointsTable = new()
-            {
-                { EnemyType.Goblin, 20 },
-                { EnemyType.Ghoul, 10 }
-            };
-
-            if (pointsTable.TryGetValue(enemy, out int points))
-            {
-                Points += points;
-            }
-            else
-            {
-                throw new Exception($"No such value {enemy} in pointsTable, error at AddPoints Method in Player Class");
-            }
+            Points += points;
         }
-
         public void AttemptFlee(List<Enemy> EnemyList)
         {
             int randomInt = Globals.random.Next(1, 100);
             if (randomInt > 1 && randomInt < 30) {
                 Console.WriteLine("You have fleed the enemy! Moving on.");
+                Thread.Sleep(2000);
                 EnemyList.RemoveAt(0);
             }
             Console.WriteLine("Flee attempt failed!");

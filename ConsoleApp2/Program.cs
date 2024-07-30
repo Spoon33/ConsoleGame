@@ -2,9 +2,9 @@
 
 /*
  * TODO
- * . Start game logic
- * . Stop game logic
- * . 
+ * . Add points to user when killing enemy 
+ * . Display health information for both player and enemy when fighting 
+ * . Need to fix logic with player getting attacked after killing an enemy as the enemy attack logic is straight after the handleINput function
  * . 
  * .  
  * . 

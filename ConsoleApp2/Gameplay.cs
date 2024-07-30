@@ -10,6 +10,7 @@ namespace Gameplay
     {
         private PlayerClass? _player;
         public bool _isGameRunning { get; protected set; }
+        public Enemy? PreviousEnemy { get; protected set; }
 
         public void Initialize()
         {
@@ -34,23 +35,41 @@ namespace Gameplay
         {
             List<Enemy> list = EnemyGeneration();
             Console.WriteLine("The game will start now!");
+            PreviousEnemy = list[0];
             while (_isGameRunning)
             {
-                if (list.Count > 0)
+
+                Console.WriteLine($"A {list[0].Name()} appears!");
+                Console.WriteLine($"{_player?.Name}'s health: {_player?.Health}\n{list[0].Name()}'s health: {list[0].Health}");
+                HandleInput(ref list);
+                if (list[0] == PreviousEnemy)
                 {
-                    Console.WriteLine($"A {list[0].Name()} appears!");
-                    HandleInput(ref list);
-                    if (_isGameRunning && list.Count > 0) // check if player fled or defeated the enemy
-                    {
-                        list[0].AttackPlayer(ref _player);
-                    }
+                    Thread.Sleep(1000);
+                    Console.WriteLine($"{list[0].Name()} is attacking!");
+                    list[0].AttackPlayer(ref _player);
+                    Thread.Sleep(2000);
                 }
-                else
-                {
-                    _isGameRunning = false;
-                }
+                else PreviousEnemy = list[0];
+                Console.Clear();
+                Cheat();
+                Update(list);
             }
             Console.WriteLine($"Game ended! You had {_player?.Points} points");
+        }
+        private void Cheat()
+        {
+            _player.Health = 9999;
+        }
+        public void Update(List<Enemy> list)
+        {
+            if (_isGameRunning && _player?.Health <= 0)
+            {
+                _isGameRunning = false;
+            }
+            else if (_isGameRunning && list.Count == 0)
+            {
+                _isGameRunning = false;
+            }
         }
 
         public void HandleInput(ref List<Enemy> EnemyList)
@@ -72,7 +91,9 @@ namespace Gameplay
                     _player?.AttackEnemy(EnemyList[0]);
                     if (EnemyList[0].Health <= 0)
                     {
-                        Console.WriteLine($"You have defeated the {EnemyList[0].Name()}!");
+                        Console.WriteLine($"You have defeated the {EnemyList[0].Name()}!\nYou have recieved {Util.GeneratePoints(EnemyList[0], _player)} points!");
+                        Thread.Sleep(2300);
+                        Console.WriteLine($"PLAYER POINTS AT THE MOMENT! {_player?.Points}");
                         EnemyList.RemoveAt(0);
                     }
                     break;
