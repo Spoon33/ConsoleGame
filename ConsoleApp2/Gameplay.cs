@@ -12,6 +12,8 @@ namespace Gameplay
         public bool _isGameRunning { get; protected set; }
         public Enemy? PreviousEnemy { get; protected set; }
 
+        public  bool FirstInteraction { get; private set; }
+
         public void Initialize()
         {
             _isGameRunning = true;
@@ -26,7 +28,7 @@ namespace Gameplay
             Console.WriteLine("Now please enter the type of Character you would like to play with:\n1.Knight\n2.Thief\n3.Monk\nSelection (Enter the name not number): ");
             Character character = Util.ConverCharacter(Console.ReadLine());
             Console.Clear();
-
+            FirstInteraction = true;
             _player = new(name ?? "", weapon, character);
             StartGame();
         }
@@ -38,8 +40,7 @@ namespace Gameplay
             PreviousEnemy = list[0];
             while (_isGameRunning)
             {
-
-                Console.WriteLine($"A {list[0].Name()} appears!");
+                if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
                 Console.WriteLine($"{_player?.Name}'s health: {_player?.Health}\n{list[0].Name()}'s health: {list[0].Health}");
                 HandleInput(ref list);
                 if (list[0] == PreviousEnemy)
@@ -75,6 +76,7 @@ namespace Gameplay
         public void HandleInput(ref List<Enemy> EnemyList)
         {
             string? input = null;
+            FirstInteraction = false;
             while (input != "1" && input != "2" && input != "3")
             {
                 Console.WriteLine("What would you like to do against the enemy or to yourself:\n1. Attack Enemy!\n2. Heal yourself\n3. Flee from the enemy\nSelection (1, 2 or 3)");
@@ -94,6 +96,8 @@ namespace Gameplay
                         Console.WriteLine($"You have defeated the {EnemyList[0].Name()}!\nYou have recieved {Util.GeneratePoints(EnemyList[0], _player)} points!");
                         Thread.Sleep(2300);
                         Console.WriteLine($"PLAYER POINTS AT THE MOMENT! {_player?.Points}");
+                        FirstInteraction = true;
+                        Thread.Sleep(1500);
                         EnemyList.RemoveAt(0);
                     }
                     break;
