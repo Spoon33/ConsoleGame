@@ -30,21 +30,6 @@ namespace CharacterNamespace
             DamageMultiplier = Multiplier;
         }
 
-        public virtual int CurrentHealth()
-        {
-            return Health;
-        }
-
-        public virtual int CurrentHealthPotions()
-        {
-            return HealthPotions;
-        }
-        public virtual void UsePotion(PlayerClass x)
-        {
-            HealthPotions--;
-            Health += 20;
-            Console.WriteLine($"Healed, health is now: {Health}");
-        }
         public string CharacterToString()
         {
             switch (CharType)
