@@ -18,7 +18,7 @@ namespace Player
 
         public PlayerClass(string PlayerName, Weapon PlayerWeapon, Character charType)
         {
-            Name = string.IsNullOrEmpty(PlayerName) ? $"Player{Globals.random.Next(1, 1000)}" : PlayerName;
+            Name = string.IsNullOrEmpty(PlayerName) ? $"Player{Globals.randomForPlayer.Next(1, 1000)}" : PlayerName;
             Weapon = PlayerWeapon;
             character = charType;
             Health = charType.Health;
@@ -27,7 +27,7 @@ namespace Player
 
         public void AttackEnemy(Enemy enemy)
         {
-            int damage = Util.RandomDamage(Globals.random, this);
+            int damage = Util.RandomDamage(Globals.randomForPlayer, this, false);
             if (enemy.Health > 0)
             {
                 if (damage == 0)
@@ -59,7 +59,7 @@ namespace Player
         }
         public void AttemptFlee(List<Enemy> EnemyList)
         {
-            int randomInt = Globals.random.Next(1, 100);
+            int randomInt = Globals.randomForPlayer.Next(1, 100);
             if (randomInt > 1 && randomInt < 30) {
                 Console.WriteLine("You have fleed the enemy! Moving on.");
                 Thread.Sleep(2000);

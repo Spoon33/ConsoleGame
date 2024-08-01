@@ -65,7 +65,7 @@ namespace Enemys
 
         public override void AttackPlayer(ref PlayerClass? player)
         {
-            int damage = Util.RandomDamage(Globals.random, player);
+            int damage = Util.RandomDamage(Globals.randomForEnemy, player, true);
             if ((player?.GetHealth() > 0))
             {
                 Console.WriteLine($"{Name()} attacks {player.Name} with its claws dealing {damage} damage!");
@@ -95,7 +95,7 @@ namespace Enemys
         }
         public override void AttackPlayer(ref PlayerClass player)
         {
-            int damage = Util.RandomDamage(Globals.random, player);
+            int damage = Util.RandomDamage(Globals.randomForEnemy, player, true);
             if (player.GetHealth() > 0)
             {
                 Console.WriteLine($"{Name()} attacks {player.Name} with its dagger dealing {damage} damage!");

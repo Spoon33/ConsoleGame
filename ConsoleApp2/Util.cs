@@ -49,17 +49,23 @@ namespace Utils
             Console.WriteLine("Character provided was null, defaulting to knight class");
             return new Knight();
         }
-        public static int RandomDamage(Random x, PlayerClass? player)
+        public static int RandomDamage(Random x, PlayerClass? player, bool enemy)
         {
-            int damage = 0;
+            int damage;
+            if (enemy)
+            {
+                damage = x.Next(1, 30);
+                return damage;
+            }
             damage = x.Next(1, 50);
             return damage;
 
         }
         public static string GeneratePoints(Enemy enemy, PlayerClass? player)
         {
-            int chance = Globals.random.Next(1, 100);
-            if (enemy.Type == EnemyType.Ghoul) { 
+            int chance = Globals.randomForPlayer.Next(1, 100);
+            if (enemy.Type == EnemyType.Ghoul)
+            {
                 player.AddPoints(1);
                 return "1";
             }
@@ -73,12 +79,12 @@ namespace Utils
                 player.AddPoints(2);
                 return "2";
             }
-            else 
+            else
             {
                 player.AddPoints(1);
                 return "1";
             }
-            
+
             return "ERROR";
         }
     }
