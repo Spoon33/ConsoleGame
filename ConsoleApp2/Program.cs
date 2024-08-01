@@ -2,9 +2,9 @@
 
 /*
  * TODO
- * . Add points to user when killing enemy 
- * . 
- * . 
+ * . Create some sort of multiplier to damage so that depending on weapon choice you have have extra damage (int)(damage * player multiplier)
+ * . Create a shop so you can add to your strength, buy health potions, possibly get different weapons
+ * . Test
  * . 
  * .  
  * . 

@@ -2,6 +2,8 @@
 using Enemys;
 using Global;
 using Player;
+using System.Collections.Generic;
+using System.Globalization;
 using Utils;
 
 namespace Gameplay
@@ -40,9 +42,10 @@ namespace Gameplay
             PreviousEnemy = list[0];
             while (_isGameRunning)
             {
-                Update(list);
+                Console.WriteLine($@"Health:   Potions:   Points:
+ {_player?.Health}         {_player.healthPotions}         {_player.Points}");
                 if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
-                Console.WriteLine($"{_player?.Name}'s health: {_player?.Health}\n{list[0].Name()}'s health: {list[0].Health}");
+                Console.WriteLine($"{list[0].Name()}'s health: {list[0].Health}");
                 HandleInput(ref list);
                 if (list[0] == PreviousEnemy)
                 {
@@ -62,6 +65,7 @@ namespace Gameplay
                             _player.Heal(true);
                             break;
                         case "2":
+                            _enemysFought = 0;
                             continue;
                         default:
                             Console.WriteLine("Invalid input given, deciding to move on here.");
@@ -106,19 +110,20 @@ namespace Gameplay
                     if (EnemyList[0].Health <= 0)
                     {
                         Console.WriteLine($"You have defeated the {EnemyList[0].Name()}!\nYou have recieved {Util.GeneratePoints(EnemyList[0], _player)} points!");
-                        Thread.Sleep(2300);
-                        Console.WriteLine($"PLAYER POINTS AT THE MOMENT! {_player?.Points}");
+                        Thread.Sleep(3500);
                         FirstInteraction = true;
-                        Thread.Sleep(1500);
                         EnemyList.RemoveAt(0);
                         _enemysFought++;
                     }
+                    Update(EnemyList);
                     break;
                 case "2":
                     _player?.Heal();
+                    Update(EnemyList);
                     break;
                 case "3":
                     _player?.AttemptFlee(EnemyList);
+                    Update(EnemyList);
                     break;
             }
         }

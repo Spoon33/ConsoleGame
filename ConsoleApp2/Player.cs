@@ -50,6 +50,7 @@ namespace Player
             {
                 Health += 90;
                 Console.WriteLine($"Healed for 90hp while resting. Health now is: {GetHealth()}");
+                healthPotions--;
                 return;
             }
             else if (healthPotions > 0)
