@@ -57,7 +57,7 @@ namespace Utils
                 damage = x.Next(1, 30);
                 return damage;
             }
-            damage = x.Next(1, 50);
+            damage = x.Next(1, 75);
             return damage;
 
         }

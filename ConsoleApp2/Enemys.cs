@@ -93,10 +93,10 @@ namespace Enemys
                 return true;
             }
         }
-        public override void AttackPlayer(ref PlayerClass player)
+        public override void AttackPlayer(ref PlayerClass? player)
         {
             int damage = Util.RandomDamage(Globals.randomForEnemy, player, true);
-            if (player.GetHealth() > 0)
+            if (player?.GetHealth() > 0)
             {
                 Console.WriteLine($"{Name()} attacks {player.Name} with its dagger dealing {damage} damage!");
                 player.TakeDamage(damage);

@@ -11,8 +11,8 @@ namespace Gameplay
         private PlayerClass? _player;
         public bool _isGameRunning { get; protected set; }
         public Enemy? PreviousEnemy { get; protected set; }
-
-        public  bool FirstInteraction { get; private set; }
+        private int _enemysFought = 0;
+        public bool FirstInteraction { get; private set; }
 
         public void Initialize()
         {
@@ -40,6 +40,7 @@ namespace Gameplay
             PreviousEnemy = list[0];
             while (_isGameRunning)
             {
+                Update(list);
                 if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
                 Console.WriteLine($"{_player?.Name}'s health: {_player?.Health}\n{list[0].Name()}'s health: {list[0].Health}");
                 HandleInput(ref list);
@@ -52,14 +53,25 @@ namespace Gameplay
                 }
                 else PreviousEnemy = list[0];
                 Console.Clear();
-                Cheat();
-                Update(list);
+                if (_enemysFought == 3)
+                {
+                    Console.WriteLine($"You have defeated 3 enemys and need time to rest, during this resting period you can heal or can choose to continue:\n(Healing during this time will count as two heals but only consume 1 healable)\n1. Heal\n2. Continue");
+                    string? answer = Console.ReadLine();
+                    switch (answer) {
+                        case "1":
+                            _player.Heal(true);
+                            break;
+                        case "2":
+                            continue;
+                        default:
+                            Console.WriteLine("Invalid input given, deciding to move on here.");
+                            break;
+                        
+                    }
+                    _enemysFought = 0;
+                }
             }
             Console.WriteLine($"Game ended! You had {_player?.Points} points");
-        }
-        private void Cheat()
-        {
-            _player.Health = 9999;
         }
         public void Update(List<Enemy> list)
         {
@@ -99,6 +111,7 @@ namespace Gameplay
                         FirstInteraction = true;
                         Thread.Sleep(1500);
                         EnemyList.RemoveAt(0);
+                        _enemysFought++;
                     }
                     break;
                 case "2":
@@ -113,10 +126,10 @@ namespace Gameplay
         public static List<Enemy> EnemyGeneration()
         {
             List<Enemy> charList = new();
-            int EnemyAmount = Globals.random.Next(3, 10);
+            int EnemyAmount = Globals.randomForEnemy.Next(3, 10);
             for (int i = 0; i < EnemyAmount; i++)
             {
-                int newRand = Globals.random.Next(1, 1000);
+                int newRand = Globals.randomForEnemy.Next(1, 1000);
                 if (newRand % 2 == 0)
                 {
                     charList.Add(new Ghoul());

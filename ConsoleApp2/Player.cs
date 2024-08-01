@@ -39,14 +39,27 @@ namespace Player
                     Console.WriteLine($"{Name} attacks a {enemy} with {Weapon} dealing {damage} damage!");
                     enemy.TakeDamage(damage);
                 }
-                
+
             }
             // enemy is dead move on
         }
-        public void Heal()
+        public void Heal(bool restingHeal = false)
         {
-            healthPotions--;
-            Health += 30;
+            
+            if (restingHeal && healthPotions > 0)
+            {
+                Health += 90;
+                Console.WriteLine($"Healed for 90hp while resting. Health now is: {GetHealth()}");
+                return;
+            }
+            else if (healthPotions > 0)
+            {
+                Health += 45;
+                Console.WriteLine($"Healed for 45hp. Health now is: {GetHealth()}");
+                healthPotions--;
+                return;
+            }
+            Console.WriteLine("No Health potions left! Turn missed.");
         }
         public void TakeDamage(int damage)
         {
@@ -60,7 +73,8 @@ namespace Player
         public void AttemptFlee(List<Enemy> EnemyList)
         {
             int randomInt = Globals.randomForPlayer.Next(1, 100);
-            if (randomInt > 1 && randomInt < 30) {
+            if (randomInt > 1 && randomInt < 30)
+            {
                 Console.WriteLine("You have fleed the enemy! Moving on.");
                 Thread.Sleep(2000);
                 EnemyList.RemoveAt(0);
