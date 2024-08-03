@@ -2,6 +2,7 @@
 using Enemys;
 using Global;
 using Player;
+using ShopClass;
 using System.Collections.Generic;
 using System.Globalization;
 using Utils;
@@ -15,6 +16,7 @@ namespace Gameplay
         public Enemy? PreviousEnemy { get; protected set; }
         private int _enemysFought = 0;
         public bool FirstInteraction { get; private set; }
+        private readonly Shop? shop = new();
 
         public void Initialize()
         {
@@ -42,23 +44,34 @@ namespace Gameplay
             PreviousEnemy = list[0];
             while (_isGameRunning)
             {
-                Console.WriteLine($@"Health:   Potions:   Points:
- {_player?.Health}         {_player.healthPotions}         {_player.Points}");
+                Console.WriteLine($@"Health:   Regular Potions:   Mega Heal Potions:    Points:   Enemy Count: 
+ {_player?.Health}             {_player.healthPotions}                   {_player.megaHealPotions}                {_player.Points}        {list.Count}");
                 if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
                 Console.WriteLine($"{list[0].Name()}'s health: {list[0].Health}");
                 HandleInput(ref list);
-                if (list[0] == PreviousEnemy)
+                if (list.Count > 0)
                 {
-                    Thread.Sleep(1000);
-                    Console.WriteLine($"{list[0].Name()} is attacking!");
-                    list[0].AttackPlayer(ref _player);
-                    Thread.Sleep(2000);
+                    if (list[0] == PreviousEnemy)
+                    {
+                        Thread.Sleep(1000);
+                        Console.WriteLine($"{list[0].Name()} is attacking!");
+                        list[0].AttackPlayer(ref _player);
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        PreviousEnemy = list[0];
+                        shop.StartShop(ref _player);
+                    }
                 }
-                else PreviousEnemy = list[0];
+                else { 
+                    Update(ref list);
+                }
+                
                 Console.Clear();
                 if (_enemysFought == 3)
                 {
-                    Console.WriteLine($"You have defeated 3 enemys and need time to rest, during this resting period you can heal or can choose to continue:\n(Healing during this time will count as two heals but only consume 1 healable)\n1. Heal\n2. Continue");
+                    Console.WriteLine($"You have defeated 3 enemys and need time to rest, during this resting period you can heal, choose to continue, or enter the shop:\n(Healing during this time will count as two heals but only consume 1 healable)\n1. Heal\n2. Continue\n3. Shop\nYour current health: {_player.Health}hp");
                     string? answer = Console.ReadLine();
                     switch (answer) {
                         case "1":
@@ -67,6 +80,9 @@ namespace Gameplay
                         case "2":
                             _enemysFought = 0;
                             continue;
+                        case "3":
+                            shop.StartShop(ref _player);
+                            break;
                         default:
                             Console.WriteLine("Invalid input given, deciding to move on here.");
                             break;
@@ -77,7 +93,7 @@ namespace Gameplay
             }
             Console.WriteLine($"Game ended! You had {_player?.Points} points");
         }
-        public void Update(List<Enemy> list)
+        public void Update(ref List<Enemy> list)
         {
             if (_isGameRunning && _player?.Health <= 0)
             {
@@ -115,15 +131,15 @@ namespace Gameplay
                         EnemyList.RemoveAt(0);
                         _enemysFought++;
                     }
-                    Update(EnemyList);
+                    Update(ref EnemyList);
                     break;
                 case "2":
                     _player?.Heal();
-                    Update(EnemyList);
+                    Update(ref EnemyList);
                     break;
                 case "3":
                     _player?.AttemptFlee(EnemyList);
-                    Update(EnemyList);
+                    Update(ref EnemyList);
                     break;
             }
         }

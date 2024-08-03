@@ -14,6 +14,7 @@ namespace Player
         public int Health { get; set; }
         public Weapon Weapon { get; private set; }
         public int healthPotions { get; protected set; }
+        public int megaHealPotions { get; protected set; }
 
 
         public PlayerClass(string PlayerName, Weapon PlayerWeapon, Character charType)
@@ -23,6 +24,7 @@ namespace Player
             character = charType;
             Health = charType.Health;
             healthPotions = charType.HealthPotions;
+            megaHealPotions = 0;
         }
 
         public void AttackEnemy(Enemy enemy)
@@ -48,15 +50,15 @@ namespace Player
             
             if (restingHeal && healthPotions > 0)
             {
-                Health += 90;
-                Console.WriteLine($"Healed for 90hp while resting. Health now is: {GetHealth()}");
+                Health += 100;
+                Console.WriteLine($"Healed for 100hp while resting. Health now is: {GetHealth()}");
                 healthPotions--;
                 return;
             }
             else if (healthPotions > 0)
             {
-                Health += 45;
-                Console.WriteLine($"Healed for 45hp. Health now is: {GetHealth()}");
+                Health += 50;
+                Console.WriteLine($"Healed for 50hp. Health now is: {GetHealth()}");
                 healthPotions--;
                 return;
             }
