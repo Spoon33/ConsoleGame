@@ -51,15 +51,19 @@ namespace Utils
         }
         public static int RandomDamage(Random x, PlayerClass? player, bool enemy)
         {
-            int damage;
+            int playerDamage = x.Next(1, 75);
+            int enemyDamage = x.Next(1, 40);
+            int damageReturned;
             if (enemy)
             {
-                damage = x.Next(1, 30);
-                return damage;
+                damageReturned = enemyDamage;
+                return damageReturned;
             }
-            damage = x.Next(1, 75);
-            return damage;
-
+            else
+            {
+                damageReturned = (int)(playerDamage * player.strength);
+                return damageReturned;
+            }
         }
         public static string GeneratePoints(Enemy enemy, PlayerClass? player)
         {

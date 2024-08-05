@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OkZX97lsX4E=",
+  "dgSpecHash": "VdmZa5dUqAW6TKk0yLXm8HIuoJ6V7sNq4hILI9Sn3XEAuFhpadlGDDbzhJt37+AmDiVTTS9NETZGj6eUScnVvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Owen\\source\\repos\\ConsoleGame\\ConsoleApp2\\ConsoleGame.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Owen\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\Owen\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\Owen\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\Owen\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\owenw\\source\\repos\\Dungeon\\ConsoleApp2\\ConsoleGame.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

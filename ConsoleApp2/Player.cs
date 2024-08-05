@@ -15,6 +15,16 @@ namespace Player
         public Weapon Weapon { get; private set; }
         public int healthPotions { get; protected set; }
         public int megaHealPotions { get; protected set; }
+        public double strength { get; protected set; }
+        public bool IsAlive
+        {
+            get
+            {
+                if (Health <= 0) return false;
+
+                return true;
+            }
+        }
 
 
         public PlayerClass(string PlayerName, Weapon PlayerWeapon, Character charType)
@@ -25,6 +35,7 @@ namespace Player
             Health = charType.Health;
             healthPotions = charType.HealthPotions;
             megaHealPotions = 0;
+            strength = 1;
         }
 
         public void AttackEnemy(Enemy enemy)
@@ -83,6 +94,49 @@ namespace Player
                 EnemyList.RemoveAt(0);
             }
             Console.WriteLine("Flee attempt failed!");
+        }
+
+        public bool RemovePoints(int points)
+        {
+            if(Points > 0)
+            {
+                Points -= points;
+                return true;
+            }
+            else
+                Console.WriteLine("Not enough points!");
+            return false;
+        }
+
+        public void AddRegularPotion()
+        {
+            if(RemovePoints(1))
+                healthPotions++;
+        }
+
+        public void AddMegaPotion() 
+        {
+            if(RemovePoints(4))
+                megaHealPotions++;
+            
+        }
+
+        public void IncreaseStrength()
+        {
+            if(RemovePoints(2))
+                strength += 0.15;
+        }
+
+        public void MegaHeal()
+        {
+            if (megaHealPotions > 0)
+            {
+                Health += 125;
+                megaHealPotions--;
+                Console.WriteLine("Healed for 125hp!");
+            }else
+                Console.WriteLine("No Mega Potions left! Missed turn.");
+            
         }
 
         public int GetHealth()

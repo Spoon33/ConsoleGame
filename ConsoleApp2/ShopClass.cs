@@ -6,7 +6,7 @@ namespace ShopClass
     {
         // If you update this dictionary update the switch case below
         private Dictionary<string, int> shopPrices = new Dictionary<string, int> {
-            { "Strength upgrade", 3 },
+            { "Strength upgrade", 2 },
             { "Regular potion", 1 },
             { "Mega Heal Potion!", 4 }
         };
@@ -30,12 +30,15 @@ namespace ShopClass
                 {
                     case "1":
                         // Add strength
+                        player.IncreaseStrength();
                         break;
                     case "2":
                         // Give player regular potion
+                        player.AddRegularPotion();
                         break;
                     case "3":
                         // Give mega potion
+                        player.AddMegaPotion();
                         break;
                     case "4":
                         // Leave

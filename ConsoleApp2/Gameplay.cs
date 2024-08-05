@@ -44,6 +44,11 @@ namespace Gameplay
             PreviousEnemy = list[0];
             while (_isGameRunning)
             {
+                if (!_player.IsAlive)
+                {
+                    _isGameRunning = false;
+                    continue;
+                }
                 Console.WriteLine($@"Health:   Regular Potions:   Mega Heal Potions:    Points:   Enemy Count: 
  {_player?.Health}             {_player.healthPotions}                   {_player.megaHealPotions}                {_player.Points}        {list.Count}");
                 if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
@@ -109,11 +114,11 @@ namespace Gameplay
         {
             string? input = null;
             FirstInteraction = false;
-            while (input != "1" && input != "2" && input != "3")
+            while (input != "1" && input != "2" && input != "3" && input != "4")
             {
-                Console.WriteLine("What would you like to do against the enemy or to yourself:\n1. Attack Enemy!\n2. Heal yourself\n3. Flee from the enemy\nSelection (1, 2 or 3)");
+                Console.WriteLine("What would you like to do against the enemy or to yourself:\n1. Attack Enemy!\n2. Regular heal\n3. Mega heal\n4. Flee from the enemy\nSelection (1, 2, 3, 4)");
                 input = Console.ReadLine();
-                if (input != "1" && input != "2" && input != "3")
+                if (input != "1" && input != "2" && input != "3" && input != "4")
                 {
                     Console.WriteLine($"Invalid input: {input}. Please enter 1, 2, or 3.");
                 }
@@ -138,6 +143,9 @@ namespace Gameplay
                     Update(ref EnemyList);
                     break;
                 case "3":
+                    _player?.MegaHeal();
+                    break;
+                case "4":
                     _player?.AttemptFlee(EnemyList);
                     Update(ref EnemyList);
                     break;
