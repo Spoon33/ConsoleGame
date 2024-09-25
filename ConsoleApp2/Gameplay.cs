@@ -96,7 +96,7 @@ namespace Gameplay
                     _enemysFought = 0;
                 }
             }
-            Console.WriteLine($"Game ended! You had {_player?.Points} points");
+            Console.WriteLine($"Game ended! You had defeated {_player?.enemysDefeated} enemys.");
         }
         public void Update(ref List<Enemy> list)
         {
@@ -135,6 +135,7 @@ namespace Gameplay
                         FirstInteraction = true;
                         EnemyList.RemoveAt(0);
                         _enemysFought++;
+                        _player.enemysDefeated++;
                     }
                     Update(ref EnemyList);
                     break;

@@ -1,6 +1,7 @@
 ﻿using CharacterNamespace;
 using Enemys;
 using Global;
+using ShopClass;
 using Utils;
 
 namespace Player
@@ -16,6 +17,7 @@ namespace Player
         public int healthPotions { get; protected set; }
         public int megaHealPotions { get; protected set; }
         public double strength { get; protected set; }
+        public int enemysDefeated{ get; set; }
         public bool IsAlive
         {
             get
@@ -40,7 +42,7 @@ namespace Player
 
         public void AttackEnemy(Enemy enemy)
         {
-            int damage = Util.RandomDamage(Globals.randomForPlayer, this, false);
+            int damage = (int)(Util.RandomDamage(Globals.randomForPlayer, this, false) * strength);
             if (enemy.Health > 0)
             {
                 if (damage == 0)
@@ -96,11 +98,13 @@ namespace Player
             Console.WriteLine("Flee attempt failed!");
         }
 
-        public bool RemovePoints(int points)
+        public bool RemovePoints(string upgrade)
         {
-            if(Points > 0)
+            Shop shop = new();
+            int upgradeCost = shop.shopPrices[upgrade];
+            if(Points >= upgradeCost)
             {
-                Points -= points;
+                Points -= upgradeCost;
                 return true;
             }
             else
@@ -110,21 +114,24 @@ namespace Player
 
         public void AddRegularPotion()
         {
-            if(RemovePoints(1))
+            if(RemovePoints("Regular potion"))
                 healthPotions++;
         }
 
         public void AddMegaPotion() 
         {
-            if(RemovePoints(4))
+            if(RemovePoints("Mega Heal Potion"))
                 megaHealPotions++;
             
         }
 
         public void IncreaseStrength()
         {
-            if(RemovePoints(2))
+            if (RemovePoints("Strength upgrade"))
+            {
                 strength += 0.15;
+            }
+                
         }
 
         public void MegaHeal()

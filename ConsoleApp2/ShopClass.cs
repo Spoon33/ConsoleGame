@@ -5,10 +5,10 @@ namespace ShopClass
     public class Shop
     {
         // If you update this dictionary update the switch case below
-        private Dictionary<string, int> shopPrices = new Dictionary<string, int> {
+        public Dictionary<string, int> shopPrices = new Dictionary<string, int> {
             { "Strength upgrade", 2 },
             { "Regular potion", 1 },
-            { "Mega Heal Potion!", 4 }
+            { "Mega Heal Potion", 4 }
         };
 
         public void StartShop(ref PlayerClass player) {
@@ -24,7 +24,7 @@ namespace ShopClass
                     ++i;
                 }
                 Console.WriteLine($"{i}. Exit");
-                string answer = Console.ReadLine();
+                string? answer = Console.ReadLine();
 
                 switch (answer)
                 {
