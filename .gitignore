@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjectEvaluation/consoleapp2.metadata.v8.bin
+/.vs/ProjectEvaluation/consoleapp2.projects.v8.bin
+/.vs/ConsoleApp2/DesignTimeBuild/.dtbcache.v2
