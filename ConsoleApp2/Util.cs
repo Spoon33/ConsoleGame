@@ -22,11 +22,11 @@ namespace Utils
                     default:
                         Console.WriteLine("Invalid Weapon Provided! Restating...");
                         Thread.Sleep(2500);
-                        break;
+                        return GetWeapon();
                 }
             }
             Console.WriteLine("Weapon provided was null");
-            return Weapon.None;
+            return GetWeapon();
         }
         public static Character ConverCharacter(string? character)
         {
@@ -43,11 +43,11 @@ namespace Utils
                     default:
                         Console.WriteLine("Invalid Character Provided! Restating...");
                         Thread.Sleep(2500);
-                        break;
+                        return GetCharacter();
                 }
             }
             Console.WriteLine("Character provided was null, defaulting to knight class");
-            return new Knight();
+            return GetCharacter();
         }
         public static int RandomDamage(Random x, PlayerClass? player, bool enemy)
         {
@@ -90,6 +90,36 @@ namespace Utils
             }
 
             return "ERROR";
+        }
+        public static Weapon GetWeapon() {
+            bool valid = false;
+            string? choice = null;
+            while (!valid) {
+                Console.WriteLine("Please provide a valid input from above: ");
+                choice = Console.ReadLine();
+                if (choice.ToLower() != "sword" || choice.ToLower() != "hammer" || choice.ToLower() != "knife")
+                {
+                    valid = true;
+                    return Util.ConverWeaponType(choice);
+                }
+            }
+            return Weapon.None;
+        }
+        public static Character GetCharacter()
+        {
+            bool valid = false;
+            string? choice = null;
+            while (!valid)
+            {
+                Console.WriteLine("Please provide a valid input from above: ");
+                choice = Console.ReadLine();
+                if (choice.ToLower() != "knight" || choice.ToLower() != "thief" || choice.ToLower() != "monk")
+                {
+                    valid = true;
+                    return Util.ConverCharacter(choice);
+                }
+            }
+            return new Knight();
         }
     }
 
