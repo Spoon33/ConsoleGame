@@ -1,5 +1,5 @@
 ﻿using CharacterNamespace;
-using Enemys;
+using Enemies;
 using Global;
 using Player;
 using ShopClass;
@@ -50,7 +50,7 @@ namespace Gameplay
                     continue;
                 }
                 Console.WriteLine($@"Health:   Regular Potions:   Mega Heal Potions:    Points:   Enemy Count: 
- {_player?.Health}             {_player.healthPotions}                   {_player.megaHealPotions}                {_player.Points}        {list.Count}");
+ {_player?.Health}             {_player?.healthPotions}                   {_player?.megaHealPotions}                {_player?.Points}        {list.Count}");
                 if (FirstInteraction) Console.WriteLine($"A {list[0].Name()} appears!");
                 Console.WriteLine($"{list[0].Name()}'s health: {list[0].Health}");
                 HandleInput(ref list);
@@ -66,7 +66,7 @@ namespace Gameplay
                     else
                     {
                         PreviousEnemy = list[0];
-                        shop.StartShop(ref _player);
+                        shop?.StartShop(ref _player);
                     }
                 }
                 else { 
@@ -76,17 +76,17 @@ namespace Gameplay
                 Console.Clear();
                 if (_enemysFought == 3)
                 {
-                    Console.WriteLine($"You have defeated 3 enemys and need time to rest, during this resting period you can heal, choose to continue, or enter the shop:\n(Healing during this time will count as two heals but only consume 1 healable)\n1. Heal\n2. Continue\n3. Shop\nYour current health: {_player.Health}hp");
+                    Console.WriteLine($"You have defeated 3 enemys and need time to rest, during this resting period you can heal, choose to continue, or enter the shop:\n(Healing during this time will count as two heals but only consume 1 healable)\n1. Heal\n2. Continue\n3. Shop\nYour current health: {_player?.Health}hp");
                     string? answer = Console.ReadLine();
                     switch (answer) {
                         case "1":
-                            _player.Heal(true);
+                            _player?.Heal(true);
                             break;
                         case "2":
                             _enemysFought = 0;
                             continue;
                         case "3":
-                            shop.StartShop(ref _player);
+                            shop?.StartShop(ref _player);
                             break;
                         default:
                             Console.WriteLine("Invalid input given, deciding to move on here.");

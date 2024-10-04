@@ -1,0 +1,5 @@
+C:\Users\Owen\Desktop\Test\ConsoleGame.exe
+C:\Users\Owen\Desktop\Test\ConsoleGame.dll
+C:\Users\Owen\Desktop\Test\ConsoleGame.deps.json
+C:\Users\Owen\Desktop\Test\ConsoleGame.runtimeconfig.json
+C:\Users\Owen\Desktop\Test\ConsoleGame.pdb

@@ -1,5 +1,5 @@
 ﻿using CharacterNamespace;
-using Enemys;
+using Enemies;
 using Global;
 using ShopClass;
 using Utils;

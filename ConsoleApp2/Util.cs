@@ -1,5 +1,5 @@
 ﻿using CharacterNamespace;
-using Enemys;
+using Enemies;
 using Global;
 using Player;
 
@@ -75,7 +75,7 @@ namespace Utils
             }
             if (chance > 0 && chance < 21 && enemy.Type == EnemyType.Goblin)
             {
-                player.AddPoints(3);
+                player?.AddPoints(3);
                 return "3";
             }
             else if (chance > 0 && chance < 51 && enemy.Type == EnemyType.Goblin)
@@ -88,9 +88,8 @@ namespace Utils
                 player.AddPoints(1);
                 return "1";
             }
-
-            return "ERROR";
         }
+
         public static Weapon GetWeapon() {
             bool valid = false;
             string? choice = null;

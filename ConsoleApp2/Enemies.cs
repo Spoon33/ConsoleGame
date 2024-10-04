@@ -2,7 +2,7 @@
 using Player;
 using Utils;
 
-namespace Enemys
+namespace Enemies
 {
 
     public enum EnemyType
